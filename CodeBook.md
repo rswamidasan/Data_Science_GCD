@@ -7,7 +7,7 @@
 
 ####  Introduction
 
-This Code Book describes the methodology used in arriving at a tidy data set for an experiment in Human Activity Recognition using Smartphones.  The experiments were conducted by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio and Luca Oneto of the Smartlab - Non Linear Complex Systems Laboratory at DITEN - Universit‡ degli Studi di Genova, Genoa, Italy in November 2012.  
+This Code Book describes the methodology used in arriving at a tidy data set for an experiment in Human Activity Recognition using Smartphones.  The experiments were conducted by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio and Luca Oneto of the Smartlab - Non Linear Complex Systems Laboratory at DITEN - Universit√† degli Studi di Genova, Genoa, Italy in November 2012.  
 
 The raw data collected in this experiment were processed to create the tidy data set using a script written in R code.
 
@@ -55,7 +55,7 @@ Then, a Fast Fourier Transform (FFT) was applied to some of the signals giving 7
 6. fBodyGyroMag
 7. fBodyGyroJerkMag
 
-The naming convention uses the prefix ìtî to denote a time domain signal, while the ìfî prefix denotes a frequency domain signal produced by an FFT. ì-XYZî denote a 3-axis signal in the X, Y and Z directions.  ìMagî denotes the Euclidean norm of a 3-Axis signal.
+The naming convention uses the prefix ‚Äút‚Äù to denote a time domain signal, while the ‚Äúf‚Äù prefix denotes a frequency domain signal produced by an FFT. ‚Äú-XYZ‚Äù denote a 3-axis signal in the X, Y and Z directions.  ‚ÄúMag‚Äù denotes the Euclidean norm of a 3-Axis signal.
 
 
 #### 2.  Raw Data Generation
@@ -96,7 +96,7 @@ The following generates 3 variables for f-XYZ signals and 1 variable for f-Mag s
 3. skewness	: skewness of the frequency domain signal 
 4. kurtosis	: kurtosis of the frequency domain signal 
 
-The following generates 42 variables for f-XYZ signals.  (There is a discrepancy here ñ The document says 64 bins [2], but the data shows only 42 variables [3].
+The following generates 42 variables for f-XYZ signals.  (There is a discrepancy here ‚Äì The document says 64 bins [2], but the data shows only 42 variables [3].
 
 1. bandsEnergy	: Energy of a frequency interval in the 64 bins.
 
@@ -127,17 +127,20 @@ Thus we arrive at the following total number of variables:
 4. f-Mag : 4 signals x 13 variables 
 5. angle	: 4 + 3 = 7 variables
 
-The total number of measured variables = 561
-Number of fixed variables = 2 (Activity and Subject)
-Number of observations = 10,299
-Number of observations in the training data set = 7,352
-Number of observations in the test data set = 2,947
+The end result is a data set with the following characteristics
+
+
+1. The total number of measured variables = 561 
+2. Number of fixed variables = 2 (Activity and Subject) 
+3. Number of observations = 10,299 
+4. Number of observations in the training data set = 7,352
+5. Number of observations in the test data set = 2,947
 
 The measured variable values have been normalized to fit within [-1, 1].
 
-This raw data is contained in space-separated text files (.txt) contained in a directory named ìUCI HAR Datasetî.
+This raw data is contained in space-separated text files (.txt) contained in a directory named ‚ÄúUCI HAR Dataset‚Äù.
 
-Each data set is placed in a separate directory - ìtrainî and ìtestî.  Each directory has three files named beginning with subject_, y_ and X_ and appended with train or test for their respective data sets: 
+Each data set is placed in a separate directory - ‚Äútrain‚Äù and ‚Äútest‚Äù.  Each directory has three files named beginning with subject_, y_ and X_ and appended with train or test for their respective data sets: 
 
 1. subject_ : Identifies the individual on whom the observations were made. 
 
@@ -151,9 +154,9 @@ Two other data files are present in the UCI HAR Dataset directory:
 
 2. activity_labels.txt : Descriptive activity names for the codes present in the y_ files. 
 
-The test and train data sets also have a directory named ìInertial Signalsî with files that contain the raw signal data.  These were not needed to create the tidy data [4]. 
+The test and train data sets also have a directory named ‚ÄúInertial Signals‚Äù with files that contain the raw signal data.  These were not needed to create the tidy data [4]. 
 
-The ìUCI HAR Datasetî directory also has README.txt and features_info.txt files that provide information on the experiment.
+The ‚ÄúUCI HAR Dataset‚Äù directory also has README.txt and features_info.txt files that provide information on the experiment.
 
 
 #### 3.  Data Summarization and Cleaning
@@ -166,28 +169,29 @@ An analysis script in R code was written to create a tidy data set through the f
 
 3. Name the Activities:  The activities were given  descriptive activity names by matching and replacing the codes with the labels in the activity_labels.txt file. 
 
-4. Give the variables descriptive names:  The variable names from the features.txt file were processed to create tidier, syntactically correct R variable names.  The characters "-", ",", "(" and ")" are replaced by the "_", with not more than one "_" in sequence.  Mistakes such as "BodyBody" in a variables names were corrected to ìBodyî.  The mis-named angle_tBodyAccMean_gravity variable was appended with ìMeanî.
+4. Give the variables descriptive names:  The variable names from the features.txt file were processed to create tidier, syntactically correct R variable names.  The characters "-", ",", "(" and ")" are replaced by the "_", with not more than one "_" in sequence.  Mistakes such as "BodyBody" in a variables names were corrected to ‚ÄúBody‚Äù.  The mis-named angle_tBodyAccMean_gravity variable was appended with ‚ÄúMean‚Äù.
 
 5. Summarize the data by activity and subject:  The data set was summarized to show average of each variable for each activity and each subject.  The summarized data in the tidy data set has 180 observations on 86 variables  one observation for each of 6 Activities x 30 Subjects.
 
 6. Ensure that the data set complies with tidy data norms. The data set was found to violate the following tidy data norms [5]. 
 
 i. Each observation forms a row
+
 ii. Each variable forms a column.
 
-The measurements in each row of the data set comes from 2 raw signals  ñ one from an Accelerometer and the other from a Gyroscope.   These are 2 separate observations, one from each device, which should be split into 2 separate rows to conform with the first norm listed above.  Since we know whether the raw signal is from the Accelerometer or the Gyroscope before the measurement is done the device is a third fixed variable in this experiment.
+The measurements in each row of the data set comes from 2 raw signals  ‚Äì one from an Accelerometer and the other from a Gyroscope.   These are 2 separate observations, one from each device, which should be split into 2 separate rows to conform with the first norm listed above.  Since we know whether the raw signal is from the Accelerometer or the Gyroscope before the measurement is done the device is a third fixed variable in this experiment.
 
-Placing Gyro and Acc variables in the same row also cause the second norm above. Consider the variable names.  Out of 86 measured variables in the current summarized data set, 66 measured variables can be paired with another having the same name except for the ìAccî or ìGyroî string.  
+Placing Gyro and Acc variables in the same row also cause the second norm above. Consider the variable names.  Out of 86 measured variables in the current summarized data set, 66 measured variables can be paired with another having the same name except for the ‚ÄúAcc‚Äù or ‚ÄúGyro‚Äù string.  
 
-For example, "tBodyAcc_mean_X" and "tBodyGyro_mean_X".  These are more accurately  termed (1) tBody_mean_X, Device = Acc, and (2) tBody_mean_X, Device = Gyro, and placed in separate rows.  There are 33 such instances where a variable is split across 2 columns, with the added problem that a variable value (in this case ìAccî or ìGyroî) is present in a variable name.
+For example, "tBodyAcc_mean_X" and "tBodyGyro_mean_X".  These are more accurately  termed (1) tBody_mean_X, Device = Acc, and (2) tBody_mean_X, Device = Gyro, and placed in separate rows.  There are 33 such instances where a variable is split across 2 columns, with the added problem that a variable value (in this case ‚ÄúAcc‚Äù or ‚ÄúGyro‚Äù) is present in a variable name.
 
-For these reasons, each row has been split into 2 ñ one row with Accelerometer data, the other with Gyroscope data.  A third fixed variable, ìDeviceî has been added to identify ìAccî rows and ìGyroî row.  Refer to the accompanying README.md file for a detailed discussion of this issue [6].
+For these reasons, each row has been split into 2 ‚Äì one row with Accelerometer data, the other with Gyroscope data.  A third fixed variable, ‚ÄúDevice‚Äù has been added to identify ‚ÄúAcc‚Äù rows and ‚ÄúGyro‚Äù row.  Refer to the accompanying README.md file for a detailed discussion of this issue [6].
 
 This row splitting action creates a data set  with 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The Gyro rows each have 20 x NA values.  Some of them are clearly inapplicable to Gyroscope measurements.  These are the 8 tGravity variables, which are derived entirely from the tAcc-XYZ raw signal, and the 3 angle_XYZ variables.
 
 The other 9 NA values in the variables starting with fBodyJerk, since, as noted in section 1 of this document, FFTs were applied to tBodyAccJerk-XYZ but not to tBodyGyroJerk-XYZ.  In all other cases when an FFT was applied to a tBodyAcc signal, it was also applied to the corresponding tBodyGyro signal.  No explanation is given for this anomaly and the features_info.txt file is inconsistent in other FFT matters.  For instance, fBodyAccMag is not mentioned in the list of frequency domain variables produced by FFT, but it appears later in the same document and in the data files.
 
-Perhaps an error has taken place and these missing values should be measured and placed in the data set.  If so, the NA values will bring these missing values to attention.  In any event, the signals for generating these variables is present in the ìInertial Signalsî directory.
+Perhaps an error has taken place and these missing values should be measured and placed in the data set.  If so, the NA values will bring these missing values to attention.  In any event, the signals for generating these variables is present in the ‚ÄúInertial Signals‚Äù directory.
 
 Finally, the order of the columns has been altered so that related variables are grouped together, in this order:
 
@@ -203,9 +207,9 @@ The position of the Mag variables has been altered to be immediately after their
 
 The tidy data set as a result of these operations has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - Acc and Gyro.  The data set is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
 
-The new measured variable names reflect the fact that Acc and Gyro variables have been merged into one (with the values split across 2 rows).  The strings ìAccî and ìGyroî have been stripped out, giving  shorter, tidier names.
+The new measured variable names reflect the fact that Acc and Gyro variables have been merged into one (with the values split across 2 rows).  The strings ‚ÄúAcc‚Äù and ‚ÄúGyro‚Äù have been stripped out, giving  shorter, tidier names.
 
-An analysis script in R code was developed to perform the operations described in this section.  The script writes the tidy data set to a disk file in the working directory named ìtidy_data.txtî.  Instructions on running the script are given in the README file accompanying this Code Book [6].
+An analysis script in R code was developed to perform the operations described in this section.  The script writes the tidy data set to a disk file in the working directory named ‚Äútidy_data.txt‚Äù.  Instructions on running the script are given in the README file accompanying this Code Book [6].
 
 
 
