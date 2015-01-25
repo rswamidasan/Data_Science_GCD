@@ -128,7 +128,7 @@ The “Gyro” rows each have 20 x NA values, 9 of which (“fBodyJerk..”) may
 Step 6 is labelled Step 5 (Part B) in the analysis script.
 
 
-#### The Script
+#### 3.  The Script
 
 The script that creates the tidy data described in Step 6 of Tidying the Data is named run_analysis.R and is available at the following GitHub repository:
 
