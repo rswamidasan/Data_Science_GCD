@@ -48,7 +48,7 @@ or "std" present in their name [1]. Only these variables are retained from the m
 
 3) Give descriptive activity names to the activities in the data set.
 
-4) Label the data set with appropriate, descriptive variable names.  The required labels for the variable names are obtained from the features.txt file and processed to create syntactically correct R variable name.  The characters "-", ",", "(" and ")" are replaced by the "_", with not more than one "_" in sequence, for tidiness.  If the string "BodyBody" in a variable name, it is replaced by "Body".
+4) Label the data set with appropriate, descriptive variable names.  The required labels for the variable names are obtained from the features.txt file and processed to create syntactically correct R variable name.  The characters "-", ",", "(" and ")" are replaced by the "_", with not more than one "_" in sequence, for tidiness.  If the string "BodyBody" is present in a variable name, it is replaced by "Body".
 
 If variable (column) names are not syntactically correct, R will substitute a “.” for any disallowed character when reading the data file – creating an untidy and possibly meaningless name to code with.  This can be suppressed by setting check.names = FALSE in the read command, but this will lead to a variable name that cannot be used in many R statements.
 
@@ -72,17 +72,17 @@ Since we clearly know whether the raw signal is from the Accelerometer or the Gy
 
 A look at the variable names from features.txt will clarify matters further. The variable names can divided into the groups below, based on their prefixes.  The count includes only the 86 measured variables extracted in Step 2 (those with "mean", "Mean" or "std" in their name).
 
-      - tBodyAcc  : 16 variables
+- tBodyAcc  : 16 variables
 
-      - tBodyGyro : 16 variables
+- tBodyGyro : 16 variables
 
-      - fBodyAcc  : 24 variables
+- fBodyAcc  : 24 variables
 
-      - fBodyGyro : 15 variables
+- fBodyGyro : 15 variables
 
-      - tGravity  : 8 variables
+- tGravity  : 8 variables
 
-      - angle     : 7 variables
+- angle     : 7 variables
 
 The number of tBodyAcc and tBodyGyro variables is the same.  This is because for every Accelerometer measurement there is a corresponding Gyroscope measurement. They are separate measurements, each measuring the acceleration of the same Subject performing the same Activity. Linear acceleration signals are from the Accelerometer, angular acceleration signals are from the Gyroscope. (The number of fBodyAcc and fBodyGyro should also be the same; discussed later.)
 
@@ -104,22 +104,21 @@ Out of these 56 variables, only 11 (less than 20%) will properly have NA values 
 
 The missing fBodyGyro variables: The fBody variables are derived from a Fast Fourier Transform (FFT) of the tBody variables.  One would expect, therefore that every tBody variable has an fBody counterpart. (There are also Fbody meanFreq variables that do not have a Time domain counterpart.)  So, since every tBodyAcc variable has a tBodyGyro counterpart, every fBodyAcc variable should have an fBodyGyro counterpart.  But, there are 9 fBodyAccJerk variables that do not have corresponding fBodyGyroJerk variables.
 
-The features_info document does omit fBodyGyroJerk-XYZ from the list of FFT variables derived – no explanation is given.  But, the same document also omits fBodyAccMag from this list and it is present later on and in the raw data provided.  So, perhaps an error has taken place.  If so, the NA entries in the Gyro rows of these variables will serve as an indication that there are missing values that should have been measured. (Why would you want the FFT of an angular jerk magnitude and not the axial components?  They have both for linear jerk.  Surely, rotation is as important for Human Activity Recognition as linear motion.) 
+The features_info document does omit fBodyGyroJerk-XYZ from the list of FFT variables derived – no explanation is given.  But, the same document also omits fBodyAccMag from this list and it is present later on and in the raw data provided.  So, perhaps an error has taken place.  If so, the NA entries in the Gyro rows of these variables will serve as an indication that there are missing values that should have been measured. (Does it make senseto measure the FFT of an angular jerk magnitude and not the axial components?  Both FFTs are measured for linear jerk in the raw data.  Surely, rotation is as important for Human Activity Recognition as linear motion.)  In any case, the raw Gyro signals and relevant tBody Gyro measurements are available in the data if these missing values are needed for future study.  The NAs filled in this exercise serve as a placeholder and a reminder that these measurements are missing. 
 
-The mis-named angle_tBodyAccMean_gravity variable:  There should be no such thing.  The angle is measured between 2 vectors, one of which could be gravityMean.  But, gravity is not on the list in the features_info document.  Moreover, all the other angle variables have gravityMean at the end.  So, this variable name has been amended to tBodyAccMean_gravityMean which gives it a Gyro counterpart.
+The mis-named angle_tBodyAccMean_gravity variable:  There should be no such thing.  The angle is measured between 2 vectors, one of which could be gravityMean.  In the features_info document, gravity is not on the list of vectors from which the angle measurements are derived.  Moreover, all the other angle variables have gravityMean at the end.  So, this variable name has been amended to tBodyAccMean_gravityMean, which also gives it a Gyro counterpart.
 
 The order of the variables: A tidy data set should have related variables placed near each other. The order of the variables has been modified accordingly (with Acc and Gyro measurements in 2 separate, alternating rows):
 
+- tBody     : 16 columns
 
-         - tBody        : 16 columns
+- fBody     : 24 variables
 
-         - fBody	      : 24 variables
+- tGravity  : 8 variables
 
-         - tGravity     : 8 variables
+- angle     : 7 variables
 
-         - angle	      : 7 variables
-
-Further, the tBody... and fBody... variables all have XYZ variables with a single Mag (magnitude) variable calculated from their values (the Euclidean norm).  They are separated by intervening columns of other XYZ variables.  The position of the Mag variables has been altered to be immediately after their XYZ variables.
+Further, the tBody... and fBody... variables all have XYZ variables with a single Mag (magnitude) variable which is calculated from their values (the Euclidean norm).  They are separated by intervening columns of other XYZ variables.  The position of the Mag variables has been altered to be immediately after their XYZ variables.
 
 The tidy data set from this step has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - “Acc” and “Gyro”.  The data set is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
 
@@ -152,8 +151,8 @@ To run the script successfully:
 
 4) The script will create the file “tidy_data.txt” in your working directory.
 
-5) It takes about 20 seconds to complete on a Windows 8.1 PC, Intel i3-4130 CPU,
-   8 GB RAM, 180 GB SSD.
+5) It takes about 20 seconds to complete on a Windows 8.1 PC with Intel i3-4130 3.4 GHz CPU,
+   8 GB RAM, 180 GB SSD (for Program files), 7200 rpm HDD (for Data files).
 
 
 ####  References :
