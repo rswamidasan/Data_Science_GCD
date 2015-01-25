@@ -72,17 +72,17 @@ Since we clearly know whether the raw signal is from the Accelerometer or the Gy
 
 A look at the variable names from features.txt will clarify matters further. The variable names can divided into the groups below, based on their prefixes.  The count includes only the 86 measured variables extracted in Step 2 (those with "mean", "Mean" or "std" in their name).
 
-      - tBodyAcc ...	: 16 variables
+      - tBodyAcc  : 16 variables
 
-      - tBodyGyro ...: 16 variables
+      - tBodyGyro : 16 variables
 
-      - fBodyAcc ...	: 24 variables
+      - fBodyAcc  : 24 variables
 
-      - fBodyGyro ...: 15 variables
+      - fBodyGyro : 15 variables
 
-      - tGravity... 	: 8 variables
+      - tGravity  : 8 variables
 
-      - angle ...		: 7 variables
+      - angle     : 7 variables
 
 The number of tBodyAcc and tBodyGyro variables is the same.  This is because for every Accelerometer measurement there is a corresponding Gyroscope measurement. They are separate measurements, each measuring the acceleration of the same Subject performing the same Activity. Linear acceleration signals are from the Accelerometer, angular acceleration signals are from the Gyroscope. (The number of fBodyAcc and fBodyGyro should also be the same; discussed later.)
 
