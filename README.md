@@ -1,6 +1,3 @@
-# Data_Science_GCD
-## Repo for Getting and Cleaning Data Course Project
-
 
 ##     Getting & Cleaning Data - Course Project    
 
@@ -22,7 +19,7 @@ This document describes the sequence of steps taken to create the tidy data set.
 
 The raw data for this project is contained in space-separated text files (.txt) as follows:
 
-The measured variables data provided are in two data sets, ìtrainî and ìtestî, each with its own, eponymous directory.  Each data set has three files named beginning with ìsubject_î, ìy_î and ìX_î and appended with train or test for their respective data sets:
+The measured variables data provided are in two data sets, ‚Äútrain‚Äù and ‚Äútest‚Äù, each with its own, eponymous directory.  Each data set has three files named beginning with ‚Äúsubject_‚Äù, ‚Äúy_‚Äù and ‚ÄúX_‚Äù and appended with train or test for their respective data sets:
 
 1) subject_ : Identifies the individual on whom the observations were made.
 
@@ -36,7 +33,7 @@ The analysis script use two other files in order to process the raw data in the 
 
 2) activity_labels.txt : Descriptive activity names to the codes present in the y_ files.
 
-The test and train data sets also have a directory named ìInertial Signalsî with files that contain the raw signal data.  These were not used in creating the tidy data [1].
+The test and train data sets also have a directory named ‚ÄúInertial Signals‚Äù with files that contain the raw signal data.  These were not used in creating the tidy data [1].
 
 The data set also has README.txt and features_info.txt files that provide information on the experiment. 
 
@@ -53,9 +50,9 @@ or "std" present in their name [1]. Only these variables are retained from the m
 
 4) Label the data set with appropriate, descriptive variable names.  The required labels for the variable names are obtained from the features.txt file and processed to create syntactically correct R variable name.  The characters "-", ",", "(" and ")" are replaced by the "_", with not more than one "_" in sequence, for tidiness.  If the string "BodyBody" in a variable name, it is replaced by "Body".
 
-If variable (column) names are not syntactically correct, R will substitute a ì.î for any disallowed character when reading the data file ñ creating an untidy and possibly meaningless name to code with.  This can be suppressed by setting check.names = FALSE in the read command, but this will lead to a variable name that cannot be used in many R statements.
+If variable (column) names are not syntactically correct, R will substitute a ‚Äú.‚Äù for any disallowed character when reading the data file ‚Äì creating an untidy and possibly meaningless name to code with.  This can be suppressed by setting check.names = FALSE in the read command, but this will lead to a variable name that cannot be used in many R statements.
 
-5) Create a second, independent tidy data set with the average of each variable for each activity and each subject, from the data set in step 4 [2].  The summarized data in the tidy data set has 180 observations on 86 variables ñ one observation for each of 6 Activities x 30 Subjects.  Each observation has 2 fixed variables and 84 measured variables.
+5) Create a second, independent tidy data set with the average of each variable for each activity and each subject, from the data set in step 4 [2].  The summarized data in the tidy data set has 180 observations on 86 variables ‚Äì one observation for each of 6 Activities x 30 Subjects.  Each observation has 2 fixed variables and 84 measured variables.
 
 6) The tidied data set form step 5 is tidied further to make it conform to tidy data norms. In tidy data [3]:
 
@@ -67,25 +64,25 @@ If variable (column) names are not syntactically correct, R will substitute a ì.
 
 The tidy data from step 5 violates the first two norms.
 
-From the README.txt and features_info.txt files we know that the data in each row of the X_ files comes from the raw signals of an Accelerometer and a Gyroscope, both embedded in a Smartphone.  Each row therefore has data from 2 measurements ñ one from an Accelerometer and one from a Gyroscope ñ thereby violating the first norm.  They should be split into 2 separate rows.
+From the README.txt and features_info.txt files we know that the data in each row of the X_ files comes from the raw signals of an Accelerometer and a Gyroscope, both embedded in a Smartphone.  Each row therefore has data from 2 measurements ‚Äì one from an Accelerometer and one from a Gyroscope ‚Äì thereby violating the first norm.  They should be split into 2 separate rows.
 
-In other words, this experiment does not have 2 Fixed variables, it has 3 ñ Activity, Subject and Device (Acc or Gyro).  A Fixed variable is one that describes the experimental design and is known before the observation is made.  A measured variable is known only after the observation is made.  
+In other words, this experiment does not have 2 Fixed variables, it has 3 ‚Äì Activity, Subject and Device (Acc or Gyro).  A Fixed variable is one that describes the experimental design and is known before the observation is made.  A measured variable is known only after the observation is made.  
 
-Since we clearly know whether the raw signal is from the Accelerometer or the Gyroscope before the measurement is done, we need to introduce a third fixed variable ñ Device, with 2 categorical values of Acc and Gyro.
+Since we clearly know whether the raw signal is from the Accelerometer or the Gyroscope before the measurement is done, we need to introduce a third fixed variable ‚Äì Device, with 2 categorical values of Acc and Gyro.
 
 A look at the variable names from features.txt will clarify matters further. The variable names can divided into the groups below, based on their prefixes.  The count includes only the 86 measured variables extracted in Step 2 (those with "mean", "Mean" or "std" in their name).
 
-- tBodyAcc Ö 	: 16 variables
+      - tBodyAcc ...	: 16 variables
 
-- tBodyGyro Ö	: 16 variables
+      - tBodyGyro ...: 16 variables
 
-- fBodyAcc Ö	: 24 variables
+      - fBodyAcc ...	: 24 variables
 
-- fBodyGyro Ö	: 15 variables
+      - fBodyGyro ...: 15 variables
 
-- tGravity   	: 8 variables
+      - tGravity... 	: 8 variables
 
-- angle Ö		: 7 variables
+      - angle ...		: 7 variables
 
 The number of tBodyAcc and tBodyGyro variables is the same.  This is because for every Accelerometer measurement there is a corresponding Gyroscope measurement. They are separate measurements, each measuring the acceleration of the same Subject performing the same Activity. Linear acceleration signals are from the Accelerometer, angular acceleration signals are from the Gyroscope. (The number of fBodyAcc and fBodyGyro should also be the same; discussed later.)
 
@@ -93,9 +90,9 @@ They form one observational unit since the measurements are of the same Subject 
 
 Consider the names of the variables themselves (after the processing in Step 4).
 
-For example, "tBodyAcc_mean_X" and "tBodyGyro_mean_X".  These are more accurately (and tidily) termed (1) ìtBody_mean_Xî, Device = Acc, and (2) ìtBody_mean_Xî, Device = Gyro, and placed in separate rows. Likewise for all tBody, fBody and angle_tBody variables.
+For example, "tBodyAcc_mean_X" and "tBodyGyro_mean_X".  These are more accurately (and tidily) termed (1) ‚ÄútBody_mean_X‚Äù, Device = Acc, and (2) ‚ÄútBody_mean_X‚Äù, Device = Gyro, and placed in separate rows. Likewise for all tBody, fBody and angle_tBody variables.
 
-Combining the Accelerometer and Gyroscope measurements in one row causes one variable, in the above case ìtBody_mean_Xî, to be split across 2 columns ñ a violation of the second norm. 
+Combining the Accelerometer and Gyroscope measurements in one row causes one variable, in the above case ‚ÄútBody_mean_X‚Äù, to be split across 2 columns ‚Äì a violation of the second norm. 
 
 It also leads to a variable VALUE to be present in a column variable NAME, a common problem in messy data sets.  In this case, a fixed variable value, Acc or Gyro, is present in all tBody and fBody column variable names.
 
@@ -103,30 +100,30 @@ The only Accelerometer variables that do not have a Gyroscope counterpart are th
 
 Thus, out of the 86 selected measured variables, only 11 are Accelerometer measurements that do not have a Gyroscope counterpart.  So, by splitting a row of the Step 5 data set into an Acc row and a Gyro row, we reduce the number of columns to : 3 x Fixed + 16 x tBody + 24 x fBody + 8 x Gravity + 2 x angle_tBody + 3 x angle_XYZ = 56.  This is a reduction of 32 columns out of 88, while making the data set conform to tidy data norms.
 
-Out of these 56 variables, only 11 (less than 20%) will properly have NA values in the Gyro rows, because they are ìnot applicableî to Gyroscope measurement.
+Out of these 56 variables, only 11 (less than 20%) will properly have NA values in the Gyro rows, because they are ‚Äúnot applicable‚Äù to Gyroscope measurement.
 
 The missing fBodyGyro variables: The fBody variables are derived from a Fast Fourier Transform (FFT) of the tBody variables.  One would expect, therefore that every tBody variable has an fBody counterpart. (There are also Fbody meanFreq variables that do not have a Time domain counterpart.)  So, since every tBodyAcc variable has a tBodyGyro counterpart, every fBodyAcc variable should have an fBodyGyro counterpart.  But, there are 9 fBodyAccJerk variables that do not have corresponding fBodyGyroJerk variables.
 
-The features_info document does omit fBodyGyroJerk-XYZ from the list of FFT variables derived ñ no explanation is given.  But, the same document also omits fBodyAccMag from this list and it is present later on and in the raw data provided.  So, perhaps an error has taken place.  If so, the NA entries in the Gyro rows of these variables will serve as an indication that there are missing values that should have been measured. (Why would you want the FFT of an angular jerk magnitude and not the axial components?  They have both for linear jerk.  Surely, rotation is as important for Human Activity Recognition as linear motion.) 
+The features_info document does omit fBodyGyroJerk-XYZ from the list of FFT variables derived ‚Äì no explanation is given.  But, the same document also omits fBodyAccMag from this list and it is present later on and in the raw data provided.  So, perhaps an error has taken place.  If so, the NA entries in the Gyro rows of these variables will serve as an indication that there are missing values that should have been measured. (Why would you want the FFT of an angular jerk magnitude and not the axial components?  They have both for linear jerk.  Surely, rotation is as important for Human Activity Recognition as linear motion.) 
 
 The mis-named angle_tBodyAccMean_gravity variable:  There should be no such thing.  The angle is measured between 2 vectors, one of which could be gravityMean.  But, gravity is not on the list in the features_info document.  Moreover, all the other angle variables have gravityMean at the end.  So, this variable name has been amended to tBodyAccMean_gravityMean which gives it a Gyro counterpart.
 
 The order of the variables: A tidy data set should have related variables placed near each other. The order of the variables has been modified accordingly (with Acc and Gyro measurements in 2 separate, alternating rows):
 
 
-- tBody 	: 16 columns
+         - tBody 	: 16 columns
 
-- fBody	: 24 variables
+         - fBody	: 24 variables
 
-- tGravity  : 8 variables
+         - tGravity  : 8 variables
 
-- angle	: 7 variables
+         - angle	: 7 variables
 
 Further, the tBody... and fBody... variables all have XYZ variables with a single Mag (magnitude) variable calculated from their values (the Euclidean norm).  They are separated by intervening columns of other XYZ variables.  The position of the Mag variables has been altered to be immediately after their XYZ variables.
 
-The tidy data set from this step has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - ìAccî and ìGyroî.  It is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
+The tidy data set from this step has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - ‚ÄúAcc‚Äù and ‚ÄúGyro‚Äù.  It is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
 
-The ìGyroî rows each have 20 x NA values, 9 of which (ìfBodyJerk..î) may be missing values that should be measured and placed in the data set.
+The ‚ÄúGyro‚Äù rows each have 20 x NA values, 9 of which (‚ÄúfBodyJerk..‚Äù) may be missing values that should be measured and placed in the data set.
 
 Step 6 is labelled Step 5 (Part B) in the analysis script.
 
@@ -143,17 +140,17 @@ To run the script successfully:
 
 2) Your working directory should contain the following files and folders:
 
-/train (with the X_, y_ and subject_ data files)
+         *  /train (with the X_, y_ and subject_ data files)
 
-/test  (with the X_, y_ and subject_ data files)
+         *  /test  (with the X_, y_ and subject_ data files)
 
-features.txt
+         *  features.txt
 
-activity_labels.txt
+         *  activity_labels.txt
 
-3) Run the following command in your R console: source(ìrun_analysis.Rî)
+3) Run the following command in your R console: source(‚Äúrun_analysis.R‚Äù)
 
-4) The script will create the file ìtidy_data.txtî in your working directory.
+4) The script will create the file ‚Äútidy_data.txt‚Äù in your working directory.
 
 5) It takes about 20 seconds to complete on a Windows 8.1 PC, Intel i3-4130 CPU,
    8 GB RAM, 180 GB SSD.
@@ -161,8 +158,8 @@ activity_labels.txt
 
 ####  References :
 
-[1] Hood, David: ìDavid's Project FAQî, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=49
+[1] Hood, David: ‚ÄúDavid's Project FAQ‚Äù, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=49
 
-[2] Cutbill, R. Gary: ìSummarize across multiple columns of a tableî, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=266.  For the information on summarise_each.
+[2] Cutbill, R. Gary: ‚ÄúSummarize across multiple columns of a table‚Äù, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=266.  For the information on summarise_each.
 
-[3] Wickham, Hadley: ìTidy Dataî, Journal of Statistical Software, Vol. VV, Issue II, pp 3 ñ 8, http://www.jstatsoft.org/v59/i10/paper
+[3] Wickham, Hadley: ‚ÄúTidy Data‚Äù, Journal of Statistical Software, Vol. VV, Issue II, pp 3 ‚Äì 8, http://www.jstatsoft.org/v59/i10/paper
