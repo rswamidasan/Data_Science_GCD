@@ -111,19 +111,19 @@ The mis-named angle_tBodyAccMean_gravity variable:  There should be no such thin
 The order of the variables: A tidy data set should have related variables placed near each other. The order of the variables has been modified accordingly (with Acc and Gyro measurements in 2 separate, alternating rows):
 
 
-         - tBody 	: 16 columns
+         - tBody        : 16 columns
 
-         - fBody	: 24 variables
+         - fBody	      : 24 variables
 
-         - tGravity  : 8 variables
+         - tGravity     : 8 variables
 
-         - angle	: 7 variables
+         - angle	      : 7 variables
 
 Further, the tBody... and fBody... variables all have XYZ variables with a single Mag (magnitude) variable calculated from their values (the Euclidean norm).  They are separated by intervening columns of other XYZ variables.  The position of the Mag variables has been altered to be immediately after their XYZ variables.
 
-The tidy data set from this step has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - “Acc” and “Gyro”.  It is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
+The tidy data set from this step has 360 observations on 56 variables, of which 3 are fixed variables and 53 are measured variables.  The new fixed variable is named Device.  It has 2 values - “Acc” and “Gyro”.  The data set is grouped by Activity, Subject and Device, with summarized measurements for each Activity and each Subject.
 
-The “Gyro” rows each have 20 x NA values, 9 of which (“fBodyJerk..”) may be missing values that should be measured and placed in the data set.
+The “Gyro” rows each have 20 x NA values, 9 of which (“fBodyJerk...”) may be missing values that should be measured and placed in the data set.
 
 Step 6 is labelled Step 5 (Part B) in the analysis script.
 
