@@ -221,19 +221,19 @@ This data set contains measured variable values that have been summarized by Act
 
 1. Activity : Character; The activity for which this observation was collected, identified by the following Activity Label values. 
 
-- WALKING
-- WALKING_UPSTAIRS
-- WALKING_DOWNSTAIRS
-- SITTING
-- STANDING
-- LAYING 
+	- WALKING
+	- WALKING_UPSTAIRS
+	- WALKING_DOWNSTAIRS
+	- SITTING
+	- STANDING
+	- LAYING 
 
 2. Subject : Integer, Range: 1 to 30; Used to identify the individual who performed the Activity.
 			
 3. Device : Character; The device from which the raw signal was captured
 
-- Acc 	: Accelerometer measurement
-- Gyro 	: Gyroscope measurement
+	- Acc 	: Accelerometer measurement
+	- Gyro 	: Gyroscope measurement
 
 4. tBody_mean_X	: Mean X-Axis acceleration
 
