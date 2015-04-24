@@ -214,35 +214,30 @@ An analysis script in R code was developed to perform the operations described i
 
 The data file contains the following 56 fields in space-separated format.  There are 3 Fixed variables, in columns 1 through 3, and 53 measured variables (columns 4 through 56).
 
-Each measured or variable is normalized to lie within [-1, 1] and is stored in the data file as a numeric with fifteen (15) decimal places.  Since the data are normalized, they do not have units.
+Each measured variable is normalized to lie within [-1, 1] and is stored in the data file as a numeric with fifteen (15) decimal places.  Since the data are normalized, they do not have units.
 
 This data set contains measured variable values that have been summarized by Activity and Subject. Every measured variable below must be understood to be the mean of all measurements of that variable for a given combination of Activity and Subject.
 
 
-1	Activity	:	Character; A Fixed variable. 
-				The activity for which this observation was collected, 				identified by the following Activity Label values. 
+1. Activity : Character; The activity for which this observation was collected, identified by the following Activity Label values. 
 
-				WALKING
-				WALKING_UPSTAIRS
-				WALKING_DOWNSTAIRS
-				SITTING
-				STANDING
-				LAYING 
+- WALKING
+- WALKING_UPSTAIRS
+- WALKING_DOWNSTAIRS
+- SITTING
+- STANDING
+- LAYING 
 
-2	Subject	:	Integer, Range: 1 to 30; A Fixed variable.
-				An integer between 1 and 30 used to identify the 					individual who performed the Activity.
+2. Subject : Integer, Range: 1 to 30; Used to identify the individual who performed the Activity.
 			
-3 	Device	:	Character; A Fixed variable
-				The device from which the raw signal was captured
+3. Device : Character; The device from which the raw signal was captured
 
-				Acc 	: Accelerometer measurement
-				Gyro 	: Gyroscope measurement
+- Acc 	: Accelerometer measurement
+- Gyro 	: Gyroscope measurement
 
-4 	tBody_mean_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean X-Axis acceleration
+4. tBody_mean_X	: Mean X-Axis acceleration
 
-5 	tBody_mean_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Y-Axis acceleration
+5. tBody_mean_Y	: Mean Y-Axis acceleration
 
 6 	tBody_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
 					Mean Z-Axis acceleration
