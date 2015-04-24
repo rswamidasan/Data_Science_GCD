@@ -451,9 +451,9 @@ This data set contains measured variable values that have been summarized by Act
 
 [3] Reyes-Ortiz, Jorge L., et al: features.txt data file in the data set.
 
-[4] Hood, David: David's Project FAQ, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=49 
+[4] Hood, David: “David's Project FAQ”, Getting and Cleaning Data Discussion Forum,                 https://class.coursera.org/getdata-013/forum/thread?thread_id=30 
 
-[5] Wickham, Hadley: Tidy Data, Journal of Statistical Software, Vol. VV, Issue II, pp 3  8, http://www.jstatsoft.org/v59/i10/paper 
+[5] Wickham, Hadley: Tidy Data, Journal of Statistical Software, Vol. VV, Issue II, pp 3  8,         http://www.jstatsoft.org/v59/i10/paper 
 
 [6] Swamidasan, Rabindra:  README.md file accompanying this project.
 

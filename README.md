@@ -1,4 +1,4 @@
-
+﻿
 ##     Getting & Cleaning Data - Course Project    
 
 
@@ -139,26 +139,31 @@ To run the script successfully:
 
 2) Your working directory should contain the following files and folders:
 
-         *  /train (with the X_, y_ and subject_ data files)
+         -  /train (with the X_, y_ and subject_ data files)
 
-         *  /test  (with the X_, y_ and subject_ data files)
+         -  /test  (with the X_, y_ and subject_ data files)
 
-         *  features.txt
+         -  features.txt
 
-         *  activity_labels.txt
+         -  activity_labels.txt
 
 3) Run the following command in your R console: source(“run_analysis.R”)
 
 4) The script will create the file “tidy_data.txt” in your working directory.
 
-5) It takes about 20 seconds to complete on a Windows 8.1 PC with Intel i3-4130 3.4 GHz CPU,
+5) It takes less than 20 seconds to complete on a Windows 8.1 PC with Intel i3-4130 3.4 GHz CPU,
    8 GB RAM, 180 GB SSD (for Program files), 7200 rpm HDD (for Data files).
 
+6) The tidy data file can be read in using the following R command:
+   data <- read.table(“tidy_data.txt”, header = TRUE)
 
 ####  References :
 
-[1] Hood, David: “David's Project FAQ”, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=49
+[1] Hood, David: “David's Project FAQ”, Getting and Cleaning Data Discussion Forum,
+    https://class.coursera.org/getdata-013/forum/thread?thread_id=30
 
-[2] Cutbill, R. Gary: “Summarize across multiple columns of a table”, Getting and Cleaning Data Discussion Forum, https://class.coursera.org/getdata-010/forum/thread?thread_id=266.  For the information on summarise_each.
+[2] Hood, David: "Tidy data and the Assignment", Getting and Cleaning Data Discussion Forum,
+    https://class.coursera.org/getdata-013/forum/thread?thread_id=31
 
-[3] Wickham, Hadley: “Tidy Data”, Journal of Statistical Software, Vol. VV, Issue II, pp 3 – 8, http://www.jstatsoft.org/v59/i10/paper
+[3] Wickham, Hadley: “Tidy Data”, Journal of Statistical Software, Vol. VV, Issue II, pp 3 – 8,
+    http://www.jstatsoft.org/v59/i10/paper
