@@ -214,7 +214,10 @@ An analysis script in R code was developed to perform the operations described i
 
 The data file contains the following 56 fields in space-separated format.  There are 3 Fixed variables, in columns 1 through 3, and 53 measured variables (columns 4 through 56).
 
-Each measured variable is normalized to lie within [-1, 1] and is stored in the data file as a numeric with fifteen (15) decimal places.  Since the data are normalized, they do not have units.
+Each measured variable:
+- Is normalized to lie within [-1, 1],
+- Is stored in the data file as a numeric with fifteen (15) decimal places,
+- Does not have units since it is normalized.
 
 This data set contains measured variable values that have been summarized by Activity and Subject. Every measured variable below must be understood to be the mean of all measurements of that variable for a given combination of Activity and Subject.
 
@@ -239,196 +242,115 @@ This data set contains measured variable values that have been summarized by Act
 
 5. tBody_mean_Y	: Mean Y-Axis acceleration
 
-6 	tBody_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Z-Axis acceleration
+6. tBody_mean_Z	: Mean Z-Axis acceleration
 
-7 	tBodyMag_mean	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Euclidean norm of X, Y & Z-Axis acceleration
+7. tBodyMag_mean : Mean Euclidean norm of X, Y & Z-Axis acceleration
 
-8 	tBody_std_X		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of X-Axis acceleration
+8. tBody_std_X : Standard Deviation of X-Axis acceleration
 
-9 	tBody_std_Y		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of Y-Axis acceleration
+9. tBody_std_Y : Standard Deviation of Y-Axis acceleration
 
-10 	tBody_std_Z		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of Z-Axis acceleration
+10. tBody_std_Z	: Standard Deviation of Z-Axis acceleration
 
-11 	tBodyMag_std	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of the Euclidean norm of 
-					X, Y & Z-Axis acceleration
+11. tBodyMag_std : Standard Deviation of the Euclidean norm of X, Y & Z-Axis acceleration
 
-12 	tBodyJerk_mean_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean X-Axis Jerk
+12. tBodyJerk_mean_X : Mean X-Axis Jerk
 
-13 	tBodyJerk_mean_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Y-Axis Jerk
+13. tBodyJerk_mean_Y : Mean Y-Axis Jerk
 
-14 	tBodyJerk_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Z-Axis Jerk
+14. tBodyJerk_mean_Z : Mean Z-Axis Jerk
 
-15 	tBodyJerkMag_mean	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean Euclidean norm of X, Y & Z-Axis Jerk
+15. tBodyJerkMag_mean : Mean Euclidean norm of X, Y & Z-Axis Jerk
 
-16 	tBodyJerk_std_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of X-Axis Jerk
+16. tBodyJerk_std_X : Standard Deviation of X-Axis Jerk
 
-17 	tBodyJerk_std_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of Y-Axis Jerk
+17. tBodyJerk_std_Y : Standard Deviation of Y-Axis Jerk
 
-18 	tBodyJerk_std_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of Z-Axis Jerk
+18. tBodyJerk_std_Z : Standard Deviation of Z-Axis Jerk
 
-19 	tBodyJerkMag_std	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of the Euclidean norm of 
-					X, Y & Z-Axis Jerk
+19. tBodyJerkMag_std : Standard Deviation of the Euclidean norm of X, Y & Z-Axis Jerk
 
-20 	fBody_mean_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean of FFT of X-Axis Acceleration
+20. fBody_mean_X : Mean of FFT of X-Axis Acceleration
 
-21 	fBody_mean_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean of FFT of Y-Axis Acceleration
+21. fBody_mean_Y : Mean of FFT of Y-Axis Acceleration
 
-22 	fBody_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean of FFT of Z-Axis Acceleration
+22. fBody_mean_Z : Mean of FFT of Z-Axis Acceleration
 
-23 	fBodyMag_mean	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean of FFT of Euclidean norm of X, Y & Z-Axis 						Acceleration 
+23. fBodyMag_mean : Mean of FFT of Euclidean norm of X, Y & Z-Axis Acceleration 
 
-24 	fBody_std_X		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of FFT of X-Axis Acceleration
+24. fBody_std_X : Standard Deviation of FFT of X-Axis Acceleration
 
-25 	fBody_std_Y		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of FFT of Y-Axis Acceleration
+25. fBody_std_Y : Standard Deviation of FFT of Y-Axis Acceleration
 
-26 	fBody_std_Z		:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of FFT of Z-Axis Acceleration
+26. fBody_std_Z : Standard Deviation of FFT of Z-Axis Acceleration
 
-27 	fBodyMag_std	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of FFT of Euclidean norm of
-					X, Y & Z-Axis Acceleration
+27. fBodyMag_std : Standard Deviation of FFT of Euclidean norm of X, Y & Z-Axis Acceleration
 
-28 	fBody_meanFreq_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Weighted Average of Frequency components of FFT
-					of X-Axis Acceleration
+28. fBody_meanFreq_X : Weighted Average of Frequency components of FFT of X-Axis Acceleration
 
-29 	fBody_meanFreq_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Weighted Average of Frequency components of FFT
-					of Y-Axis Acceleration
+29. fBody_meanFreq_Y : Weighted Average of Frequency components of FFT of Y-Axis Acceleration
 
-30 	fBody_meanFreq_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Weighted Average of Frequency components of FFT
-					of Z-Axis Acceleration
+30. fBody_meanFreq_Z : Weighted Average of Frequency components of FFT of Z-Axis Acceleration
 
-31 	fBodyMag_meanFreq	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Weighted Average of Frequency components of FFT
-					of Euclidean norm of X, Y & Z-Axis Acceleration	
+31. fBodyMag_meanFreq : Weighted Average of Frequency components of FFT of Euclidean norm of X, Y & Z-Axis
+ 			Acceleration	
 
-32 	fBodyJerk_mean_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean of FFT of X-Axis Jerk
+32. fBodyJerk_mean_X : NA for Device = Gyro (may be missing value); Mean of FFT of X-Axis Jerk
 
-33 	fBodyJerk_mean_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean of FFT of Y-Axis Jerk
+33. fBodyJerk_mean_Y : NA for Device = Gyro (may be missing value); Mean of FFT of Y-Axis Jerk
 
-34 	fBodyJerk_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean of FFT of Z-Axis Jerk
+34. fBodyJerk_mean_Z : NA for Device = Gyro (may be missing value); Mean of FFT of Z-Axis Jerk
 
-35 	fBodyJerkMag_mean	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Mean of FFT of Euclidean norm of X, Y & Z-Axis
-					Jerk
+35. fBodyJerkMag_mean : Mean of FFT of Euclidean norm of X, Y & Z-Axis Jerk
 
-36 	fBodyJerk_std_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of FFT of X-Axis Jerk
+36. fBodyJerk_std_X : NA for Device = Gyro (may be missing value); Standard Deviation of FFT of X-Axis Jerk
 
-37 	fBodyJerk_std_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of FFT of Y-Axis Jerk
+37. fBodyJerk_std_Y : NA for Device = Gyro (may be missing value); Standard Deviation of FFT of Y-Axis Jerk
 
-38 	fBodyJerk_std_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of FFT of Z-Axis Jerk
+38. fBodyJerk_std_Z : NA for Device = Gyro (may be missing value); Standard Deviation of FFT of Z-Axis Jerk
 
-39 	fBodyJerkMag_std	:	Numeric, 15 decimal places, normalized [-1, 1]
-					Standard Deviation of Euclidean norm of X, Y & 
-					Z-Axis Jerk
+39. fBodyJerkMag_std : Standard Deviation of Euclidean norm of X, Y & Z-Axis Jerk
 
-40 	fBodyJerk_meanFreq_X	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Weighted Average of Frequency components of FFT
-					  of X-Axis Jerk
+40. fBodyJerk_meanFreq_X : NA for Device = Gyro (may be missing value); Weighted Average of Frequency components
+				of FFT of X-Axis Jerk
 
-41 	fBodyJerk_meanFreq_Y	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Weighted Average of Frequency components of FFT
-					  of Y-Axis Jerk
+41. fBodyJerk_meanFreq_Y : NA for Device = Gyro (may be missing value); Weighted Average of Frequency components
+				of FFT of Y-Axis Jerk
 
-42 	fBodyJerk_meanFreq_Z	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Weighted Average of Frequency components of FFT
-					  of Z-Axis Jerk
+42. fBodyJerk_meanFreq_Z : NA for Device = Gyro (may be missing value); Weighted Average of Frequency components
+				of FFT of Z-Axis Jerk
 
-43	fBodyJerkMag_meanFreq	: Numeric, 15 decimal places, normalized [-1, 1]
-					  Weighted Average of Frequency components of FFT 					  of Euclidean norm of X, Y & Z-Axis Jerk
+43. fBodyJerkMag_meanFreq : Weighted Average of Frequency components of FFT of Euclidean norm of X, Y & Z-Axis Jerk
 
-44 	tGravity_mean_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean Gravity Acceleration in X-Axis
+44. tGravity_mean_X :NA for Device = Gyro; Mean Gravity Acceleration in X-Axis
 
-45 	tGravity_mean_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean Gravity Acceleration in Y-Axis
+45. tGravity_mean_Y : NA for Device = Gyro; Mean Gravity Acceleration in Y-Axis
 
-46 	tGravity_mean_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean Gravity Acceleration in Z-Axis
+46. tGravity_mean_Z : NA for Device = Gyro; Mean Gravity Acceleration in Z-Axis
 
-47 	tGravityMag_mean	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Mean of Euclidean norm of Gravity Acceleration 
-					in X, Y & Z-Axes
+47. tGravityMag_mean : NA for Device = Gyro; Mean of Euclidean norm of Gravity Acceleration in X, Y & Z-Axes
 
-48 	tGravity_std_X	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of Gravity Acceleration in 
-					X-Axis
+48. tGravity_std_X : NA for Device = Gyro; Standard Deviation of Gravity Acceleration in X-Axis
 
-49 	tGravity_std_Y	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of Gravity Acceleration in 
-					Y-Axis
+49. tGravity_std_Y : NA for Device = Gyro; Standard Deviation of Gravity Acceleration in Y-Axis
 
-50 	tGravity_std_Z	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of Gravity Acceleration in 
-					Z-Axis
+50. tGravity_std_Z : NA for Device = Gyro; Standard Deviation of Gravity Acceleration in Z-Axis
 
-51 	tGravityMag_std	:	Numeric, 15 decimal places, normalized [-1, 1]
-					NA for Device = Gyro
-					Standard Deviation of Euclidean norm of Gravity 					Acceleration in X, Y & Z-Axes
+51. tGravityMag_std : NA for Device = Gyro; Standard Deviation of Euclidean norm of Gravity Acceleration in X, Y 
+			& Z-Axes
 
-52 	angle_tBodyMean_gravityMean	: Numeric, 
-						  15 decimal places, normalized [-1, 1]
-						  Angle between the Mean Acceleration and 						  Mean Gravity vectors in a sampling window
+52. angle_tBodyMean_gravityMean : Angle between the Mean Acceleration and Mean Gravity vectors in a sampling window
 
-53 	angle_tBodyJerkMean_gravityMean	: Numeric, 15 decimal places,
-							  normalized [-1, 1]
-						  Angle between the Mean Jerk and Mean					  		  Gravity vectors in a sampling window
+53. angle_tBodyJerkMean_gravityMean : Angle between the Mean Jerk and Mean Gravity vectors in a sampling window
 
-54 	angle_X_gravityMean	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Angle between the X-Axis and Mean	Gravity vectors		  		 	  in a sampling window				
+54. angle_X_gravityMean : NA for Device = Gyro; Angle between the X-Axis and Mean Gravity vectors in a sampling 
+				window				
 
-55 	angle_Y_gravityMean	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Angle between the Y-Axis and Mean	Gravity vectors		  		 	  in a sampling window				
+55. angle_Y_gravityMean : NA for Device = Gyro; Angle between the Y-Axis and Mean Gravity vectors in a sampling
+				window				
 
-56 	angle_Z_gravityMean	: Numeric, 15 decimal places, normalized [-1, 1]
-					  NA for Device = Gyro
-					  Angle between the Z-Axis and Mean	Gravity vectors 					  in a sampling window
+56. angle_Z_gravityMean : NA for Device = Gyro; Angle between the Z-Axis and Mean Gravity vectors in a sampling
+				window
 
 
 

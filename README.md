@@ -135,9 +135,9 @@ https://github.com/rswamidasan/Data_Science_GCD
 
 To run the script successfully:
 
-1) Place the script in your working directory.
+1. Place the script in your working directory.
 
-2) Your working directory should contain the following files and folders:
+2. Your working directory should contain the following files and folders:
 
          -  /train (with the X_, y_ and subject_ data files)
 
@@ -147,14 +147,14 @@ To run the script successfully:
 
          -  activity_labels.txt
 
-3) Run the following command in your R console: source(“run_analysis.R”)
+3. Run the following command in your R console: source(“run_analysis.R”)
 
-4) The script will create the file “tidy_data.txt” in your working directory.
+4. The script will create the file “tidy_data.txt” in your working directory.
 
-5) It takes less than 20 seconds to complete on a Windows 8.1 PC with Intel i3-4130 3.4 GHz CPU,
+5. It takes less than 20 seconds to complete on a Windows 8.1 PC with Intel i3-4130 3.4 GHz CPU,
    8 GB RAM, 180 GB SSD (for Program files), 7200 rpm HDD (for Data files).
 
-6) The tidy data file can be read in using the following R command:
+6. The tidy data file can be read in using the following R command:
    data <- read.table(“tidy_data.txt”, header = TRUE)
 
 ####  References :
